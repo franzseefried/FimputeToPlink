@@ -4,8 +4,8 @@
 ###   started:   2017/05/15 (fsf)
 ###
 ### ############################################# ###
-
 ### # recoding with a function
+devtools::load_all()
 recodeSnpInfo <- function(psInputFn, pbHasHeader = FALSE) {
   ###
   ###   recodeSnpInfo(psInputFn): recoding of SNP Info in psInputFn
@@ -29,20 +29,11 @@ recodeSnpInfo <- function(psInputFn, pbHasHeader = FALSE) {
   }
   ### # loop ueber input lines
   while (length(sCurSnpLine  <- readLines(conSnpInfo, n = 1) ) > 0) {
-    # split input line at white-space into character vector
-    ##vecCurSnp <- unlist(strsplit(sCurSnpLine, "[\t ]+"))
-    # convert char with calls into a vector of chars
-    #    vecCurCall <- as.numeric(unlist(strsplit(vecCurSnp[3], "")))
     
+    #rplcString_main("123456789")
     
+    vecCurCall <- rplcString_main(sCurSnpLine)
     
-    
-    
-    vecCurCall <- as.numeric(unlist(strsplit(sCurSnpLine, "")))
-    vecCurCall <- replace(vecCurCall, vecCurCall>2, c("9 9"))
-    vecCurCall <- replace(vecCurCall, vecCurCall==0, c("A A"))
-    vecCurCall <- replace(vecCurCall, vecCurCall==1, c("A B"))
-    vecCurCall <- replace(vecCurCall, vecCurCall==2, c("B B"))
     cat( vecCurCall, "\n", file = sOutputFn, append = TRUE)
   }
   
