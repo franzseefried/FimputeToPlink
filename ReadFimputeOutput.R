@@ -33,6 +33,11 @@ recodeSnpInfo <- function(psInputFn, pbHasHeader = FALSE) {
     ##vecCurSnp <- unlist(strsplit(sCurSnpLine, "[\t ]+"))
     # convert char with calls into a vector of chars
     #    vecCurCall <- as.numeric(unlist(strsplit(vecCurSnp[3], "")))
+    
+    
+    
+    
+    
     vecCurCall <- as.numeric(unlist(strsplit(sCurSnpLine, "")))
     vecCurCall <- replace(vecCurCall, vecCurCall>2, c("9 9"))
     vecCurCall <- replace(vecCurCall, vecCurCall==0, c("A A"))
